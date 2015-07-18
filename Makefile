@@ -26,15 +26,19 @@ SRC=	Src/main.c		\
 
 OBJ=	$(SRC:.c=.o)
 
-MINILIBX=	-L/usr/lib64 -lmlx_$(HOSTTYPE) -L/usr/lib64/X11 -lXext -lX11
+CC=	gcc
+CFLAGS=	-Wall
+LDFLAGS= -lm
+
+#MINILIBX=	-L/usr/lib64 -lmlx_$(HOSTTYPE) -L/usr/lib64/X11 -lXext -lX11
 
 $(NAME): $(OBJ)
-	gcc -Wall -lm $(OBJ) -o $(NAME) $(MINILIBX)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o $(NAME)
 
 all: $(NAME)
 
 clean:
-	@clean
+#	@clean
 	@rm -f Src/*.c~
 	@rm -f Src/*\#*#
 	@rm -f Src/Include/*.c~
