@@ -11,6 +11,8 @@
 #ifndef		MY_MLX_H__
 #define		MY_MLX_H__
 
+#include <SDL2/SDL.h>
+
 #define		WIN_NAME	"raytracer"
 #define		WIN_X		1080
 #define		WIN_Y		720
@@ -22,18 +24,20 @@
 
 typedef struct	s_mlx
 {
-  void		*mlx_ptr;
-  void		*win_ptr;
-  void		*img_ptr;
+  SDL_Window	*win;
+  SDL_Surface	*img;
+
   char		*data;
   int		bpp;
   int		size_line;
   int		endian;
 }	t_mlx;
 
-void		 my_pixel_put_to_image(t_mlx *, unsigned int, int, int);
+void		my_pixel_put_to_image(t_mlx *, unsigned int, int, int);
 int		expose_event(void *);
 int		key_event(int);
 int		init_mlx(t_mlx *);
+
+int		put_image_to_window(t_mlx *);
 
 #endif		/* !MY_MLX_H__*/

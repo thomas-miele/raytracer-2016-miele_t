@@ -27,10 +27,10 @@ SRC=	Src/main.c		\
 OBJ=	$(SRC:.c=.o)
 
 CC=	gcc
-CFLAGS=	-Wall
-LDFLAGS= -lm
 
-#MINILIBX=	-L/usr/lib64 -lmlx_$(HOSTTYPE) -L/usr/lib64/X11 -lXext -lX11
+CFLAGS=	-Wall  -D_REENTRANT #-I/usr/include/SDL2
+
+LDFLAGS= -L/usr/lib/x86_64-linux-gnu -lSDL2
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o $(NAME)

@@ -8,13 +8,7 @@
 ** Last update Sun Jun  3 17:10:28 2012 thomas miele
 */
 
-#include <stdlib.h>
-#include <mlx.h>
 #include "Include/my_mlx.h"
-#include "Include/struct.h"
-#include "Include/raytracer.h"
-#include "Include/color.h"
-#include "Include/luminosite.h"
 
 void    my_pixel_put_to_image(t_mlx *mlx, t_Uint color, int x, int y)
 {
@@ -50,17 +44,28 @@ int     key_event(int keycode)
 
 int     init_mlx(t_mlx *mlx)
 {
-  int   *ret;
-
-  ret = mlx->mlx_ptr = mlx_init();
-  if (ret == NULL)
-    exit(EXIT_FAILURE);
-  ret = mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WIN_X, WIN_Y, WIN_NAME);
-  if (ret == NULL)
-    exit(EXIT_FAILURE);
-  ret = mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, WIN_X, WIN_Y);
-  if (ret == NULL)
-    exit(EXIT_FAILURE);
-  mlx->data = mlx_get_data_addr(mlx->img_ptr, &(mlx->bpp),
+  //  ret = mlx->mlx_ptr = mlx_init();
+  if (SDL_Init(SDL_INIT_VIDEO))
+    {
+      exit(EXIT_FAILURE);
+    }
+  //  ret = mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WIN_X, WIN_Y, WIN_NAME);
+  mlx->win = SDL_CreateWindow(WIN_NAME,
+			      SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+			      WIN_X, WIN_Y,
+			      SDL_WINDOW_SHOWN);
+  if (mlx->win == NULL)
+    {
+      exit(EXIT_FAILURE);
+    }
+  mlx->img = SDL_GetWindowSurface(mlx->win);
+  if (mlx->img == NULL)
+    {
+      exit(EXIT_FAILURE);
+    }
+  //  ret = mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, WIN_X, WIN_Y);
+  /*
+    mlx->data = mlx_get_data_addr(mlx->img_ptr, &(mlx->bpp),
 				&(mlx->size_line), &(mlx->endian));
+  */
 }

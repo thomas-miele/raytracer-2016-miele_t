@@ -9,7 +9,6 @@
 */
 
 #include <stdlib.h>
-#include <mlx.h>
 #include "Include/my_mlx.h"
 #include "Include/struct.h"
 #include "Include/raytracer.h"
@@ -24,6 +23,7 @@ int		main(int ac, char **av)
   t_llist	*spot = NULL;
 
   init_mlx(&mlx);
+
   init_camera(&eye, -300, 0, 50, 0, 0, 0);
   add_spot(&spot, SPOT, -100, 200, 100, 0xffffff);
 
@@ -34,7 +34,34 @@ int		main(int ac, char **av)
   mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.img_ptr, 0, 0);
   mlx_expose_hook(mlx.win_ptr, &expose_event, &mlx);
   mlx_key_hook(mlx.win_ptr, &key_event, 0);
-  mlx_loop(mlx.mlx_ptr);
+
+  SDL_Event event;
+  int loop = 1;
+
+  while (loop != 0)
+    {
+      // events
+      while (SDL_PollEvent(&event))
+	{
+	  switch (event.type)
+	    {
+	    case SDL_quit:
+	      loop = 0;
+	      break;
+	    case SDL_KEYDOWN:
+	      if (event.key.keysym.sym == SDLK_ESCAPE)
+		{
+		  loop = 0;
+		}
+	      break;
+	    }
+	}
+      // update
+      // draw
+      
+    }
+  SDL_Quit();
+
   free_llist(&llist);
   free_llist(&spot);
   return (0);
