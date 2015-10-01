@@ -17,7 +17,7 @@ int		raytracer(t_mlx *, t_mesh *, t_llist *, t_llist *);
 
 void		init_camera(t_mesh *, float, float, float, float, float, float);
 int		llist_len(t_llist *);
-void		free_list(t_llist **);
+void		free_llist(t_llist **);
 
 int		add_spot(t_llist **, int, float, float, float, unsigned int);
 int		add_mesh(t_llist **, int, float, float, float, float,

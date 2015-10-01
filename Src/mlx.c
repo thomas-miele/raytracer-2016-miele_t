@@ -9,6 +9,7 @@
 */
 
 #include "Include/my_mlx.h"
+#include "Include/struct.h"
 
 void    my_pixel_put_to_image(t_mlx *mlx, t_Uint color, int x, int y)
 {
@@ -26,30 +27,12 @@ void    my_pixel_put_to_image(t_mlx *mlx, t_Uint color, int x, int y)
   mlx->data[pixel + 2] = r;
 }
 
-int     expose_event(void *param)
-{
-  t_mlx *tmp;
-
-  tmp = (t_mlx *)param;
-  mlx_put_image_to_window(tmp->mlx_ptr, tmp->win_ptr, tmp->img_ptr,  0, 0);
-  return (0);
-}
-
-int     key_event(int keycode)
-{
-  if (keycode == ESC)
-    exit(0);
-  return (0);
-}
-
 int     init_mlx(t_mlx *mlx)
 {
-  //  ret = mlx->mlx_ptr = mlx_init();
   if (SDL_Init(SDL_INIT_VIDEO))
     {
       exit(EXIT_FAILURE);
     }
-  //  ret = mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WIN_X, WIN_Y, WIN_NAME);
   mlx->win = SDL_CreateWindow(WIN_NAME,
 			      SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 			      WIN_X, WIN_Y,
@@ -63,9 +46,5 @@ int     init_mlx(t_mlx *mlx)
     {
       exit(EXIT_FAILURE);
     }
-  //  ret = mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, WIN_X, WIN_Y);
-  /*
-    mlx->data = mlx_get_data_addr(mlx->img_ptr, &(mlx->bpp),
-				&(mlx->size_line), &(mlx->endian));
-  */
+  return 0;
 }

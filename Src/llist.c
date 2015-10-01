@@ -29,7 +29,7 @@ void	init_camera(t_mesh *eye, float x, float y, float z,
 int		llist_len(t_llist *top)
 {
   t_llist	*tmp = NULL;
-  int		len;
+  int		len = 0;
 
   tmp = top;
   while (tmp != NULL)

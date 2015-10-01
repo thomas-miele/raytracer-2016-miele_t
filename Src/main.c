@@ -14,6 +14,7 @@
 #include "Include/raytracer.h"
 #include "Include/color.h"
 #include "Include/luminosite.h"
+#include "Include/mesh.h"
 
 int		main(int ac, char **av)
 {
@@ -31,10 +32,6 @@ int		main(int ac, char **av)
   add_mesh(&llist, CYLINDRE, 0, 0, 0, 100, 0xff0000, 0.9, 0, 0, 0);
   raytracer(&mlx, &eye, llist, spot);
 
-  mlx_put_image_to_window(mlx.mlx_ptr, mlx.win_ptr, mlx.img_ptr, 0, 0);
-  mlx_expose_hook(mlx.win_ptr, &expose_event, &mlx);
-  mlx_key_hook(mlx.win_ptr, &key_event, 0);
-
   SDL_Event event;
   int loop = 1;
 
@@ -45,7 +42,7 @@ int		main(int ac, char **av)
 	{
 	  switch (event.type)
 	    {
-	    case SDL_quit:
+	    case SDL_QUIT:
 	      loop = 0;
 	      break;
 	    case SDL_KEYDOWN:

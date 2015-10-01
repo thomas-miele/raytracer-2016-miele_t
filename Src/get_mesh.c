@@ -10,11 +10,11 @@
 
 #include <stdlib.h>
 #include "Include/my_mlx.h"
-#include "Include/my_mlx.h"
 #include "Include/struct.h"
 #include "Include/raytracer.h"
 #include "Include/color.h"
 #include "Include/luminosite.h"
+#include "Include/mesh.h"
 
 void	get_p(t_mesh *eye, t_llist *mesh, t_ray *ray)
 {

@@ -15,6 +15,7 @@
 #include "Include/raytracer.h"
 #include "Include/color.h"
 #include "Include/luminosite.h"
+#include "Include/mesh.h"
 
 float		get_cos(t_llist *obj, t_ray *l)
 {

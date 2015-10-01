@@ -14,6 +14,7 @@
 #include "Include/raytracer.h"
 #include "Include/color.h"
 #include "Include/luminosite.h"
+#include "Include/mesh.h"
 
 /*
 ** pov : point of view: Camera or P point.

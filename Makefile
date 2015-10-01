@@ -26,11 +26,11 @@ SRC=	Src/main.c		\
 
 OBJ=	$(SRC:.c=.o)
 
-CC=	gcc
+CC=	clang
 
-CFLAGS=	-Wall  -D_REENTRANT #-I/usr/include/SDL2
+CFLAGS=	-Wall  -D_REENTRANT
 
-LDFLAGS= -L/usr/lib/x86_64-linux-gnu -lSDL2
+LDFLAGS= -L/usr/lib/x86_64-linux-gnu -lm -lSDL2
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o $(NAME)

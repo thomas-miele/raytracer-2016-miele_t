@@ -10,12 +10,12 @@
 
 #include <stdlib.h>
 #include <math.h>
-#include <mlx.h>
 #include "Include/my_mlx.h"
 #include "Include/struct.h"
 #include "Include/raytracer.h"
 #include "Include/color.h"
 #include "Include/luminosite.h"
+#include "Include/mesh.h"
 
 int	calc_k(t_llist *obj, float *k)
 {

@@ -18,7 +18,7 @@
 int     rotate_x(float *x, float *y, float *z, float angle)
 {
   float x1, y1, z1;
-  float rot_x[3][3] = {0};
+  float rot_x[3][3] = {};
 
   rot_x[0][0] = 1;
   rot_x[1][1] = cosf(RAD(angle));
@@ -39,7 +39,7 @@ int     rotate_x(float *x, float *y, float *z, float angle)
 int     rotate_y(float *x, float *y, float *z, float angle)
 {
   float x1, y1, z1;
-  float rot_y[3][3] = {0};
+  float rot_y[3][3] = {};
 
   rot_y[0][0] = cosf(RAD(angle));
   rot_y[0][2] = sinf(RAD(angle));
@@ -60,7 +60,7 @@ int     rotate_y(float *x, float *y, float *z, float angle)
 int     rotate_z(float *x, float *y, float *z, float angle)
 {
   float x1, y1, z1;
-  float rot_z[3][3] = {0};
+  float rot_z[3][3] = {};
 
   rot_z[0][0] = cosf(RAD(angle));
   rot_z[0][1] = - sinf(RAD(angle));
