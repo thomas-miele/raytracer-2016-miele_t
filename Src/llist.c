@@ -9,11 +9,7 @@
 */
 
 #include <stdlib.h>
-#include "Include/my_mlx.h"
-#include "Include/struct.h"
-#include "Include/raytracer.h"
-#include "Include/color.h"
-#include "Include/luminosite.h"
+#include "raytracer_42.h"
 
 void	init_camera(t_mesh *eye, float x, float y, float z,
 		    float xrot, float yrot, float zrot)

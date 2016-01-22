@@ -43,7 +43,7 @@ clean:
 	@rm -f Src/*\#*#
 	@rm -f Src/Include/*.c~
 	@rm -f Src/Include/*\#*#
-	@rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

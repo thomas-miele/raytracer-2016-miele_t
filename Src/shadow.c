@@ -9,12 +9,7 @@
 */
 
 #include <stdlib.h>
-#include "Include/my_mlx.h"
-#include "Include/struct.h"
-#include "Include/raytracer.h"
-#include "Include/color.h"
-#include "Include/luminosite.h"
-#include "Include/mesh.h"
+#include "raytracer_42.h"
 
 /*
 ** luminosite : pov : camera & ray : vector view

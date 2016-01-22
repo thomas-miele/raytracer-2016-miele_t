@@ -9,11 +9,7 @@
 */
 
 #include <stdlib.h>
-#include "Include/my_mlx.h"
-#include "Include/struct.h"
-#include "Include/raytracer.h"
-#include "Include/color.h"
-#include "Include/luminosite.h"
+#include "raytracer_42.h"
 
 int             add_mesh(t_llist **llist, int type, float x, float y, float z,
 			 float r, t_Uint color, float bright,

@@ -10,12 +10,7 @@
 
 #include <stdlib.h>
 #include <float.h>
-#include "Include/my_mlx.h"
-#include "Include/struct.h"
-#include "Include/raytracer.h"
-#include "Include/color.h"
-#include "Include/luminosite.h"
-#include "Include/mesh.h"
+#include "raytracer_42.h"
 
 t_Uint		calc(t_mesh *eye, t_llist *llist, t_llist *spot, t_ray *ray)
 {

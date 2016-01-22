@@ -8,8 +8,7 @@
 ** Last update Sun Jun  3 17:10:28 2012 thomas miele
 */
 
-#include "Include/my_mlx.h"
-#include "Include/struct.h"
+#include "raytracer_42.h"
 
 void    my_pixel_put_to_image(t_mlx *mlx, t_Uint color, int x, int y)
 {

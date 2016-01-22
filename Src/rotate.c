@@ -9,11 +9,7 @@
 */
 
 #include <math.h>
-#include "Include/my_mlx.h"
-#include "Include/struct.h"
-#include "Include/raytracer.h"
-#include "Include/color.h"
-#include "Include/luminosite.h"
+#include "raytracer_42.h"
 
 int     rotate_x(float *x, float *y, float *z, float angle)
 {
