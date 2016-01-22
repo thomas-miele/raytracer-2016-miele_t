@@ -26,6 +26,7 @@ typedef struct	s_mlx
 {
   SDL_Window	*win;
   SDL_Surface	*img;
+  SDL_Renderer  *render;
 
   char		*data;
   int		bpp;

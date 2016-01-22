@@ -28,6 +28,7 @@ int	calc_k(t_llist *obj, float *k)
 	*k = obj->obj.calc.k1;
       return (1);
     }
+  return 0;
 }
 
 void	calc_sphere(t_mesh *pov, t_llist *obj, t_ray *ray)

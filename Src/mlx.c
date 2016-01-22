@@ -20,10 +20,16 @@ void    my_pixel_put_to_image(t_mlx *mlx, t_Uint color, int x, int y)
   r = (color & 0xFF0000) >> 16;
   g = (color & 0xFF00) >> 8;
   b = (color & 0xFF);
+  /*
   pixel = (y * mlx->size_line) + x * (mlx->bpp / 8);
   mlx->data[pixel] = b;
   mlx->data[pixel + 1] = g;
   mlx->data[pixel + 2] = r;
+  */
+
+  SDL_SetRenderDrawColor(mlx->render, r, g, b, 0);
+  SDL_RenderDrawPoint(mlx->render, x, y);
+  SDL_SetRenderDrawColor(mlx->render, 0, 0, 0, 0);
 }
 
 int     init_mlx(t_mlx *mlx)
@@ -45,5 +51,17 @@ int     init_mlx(t_mlx *mlx)
     {
       exit(EXIT_FAILURE);
     }
+  mlx->render = SDL_CreateRenderer(mlx->win, -1, SDL_RENDERER_ACCELERATED);
+  if (mlx->render == NULL)
+    {
+      exit(EXIT_FAILURE);
+    }
+
+  return 0;
+}
+
+int put_image_to_window(t_mlx *mlx)
+{
+  SDL_RenderPresent(mlx->render);
   return 0;
 }

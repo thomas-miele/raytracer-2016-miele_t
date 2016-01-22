@@ -10,6 +10,7 @@
 
 #include <stdlib.h>
 #include <float.h>
+#include <stdio.h>
 #include "raytracer_42.h"
 
 t_Uint		calc(t_mesh *eye, t_llist *llist, t_llist *spot, t_ray *ray)
@@ -71,6 +72,7 @@ int	raytracer(t_mlx *mlx, t_mesh *eye, t_llist *llist, t_llist *spot)
 
   x = 0;
   y = 0;
+  printf("##1 raytracer begin\n");
   while (y <= WIN_Y)
     {
       while (x <= WIN_X)

@@ -9,6 +9,7 @@
 */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "raytracer_42.h"
 
 int		main(int ac, char **av)
@@ -18,6 +19,7 @@ int		main(int ac, char **av)
   t_llist	*llist = NULL;
   t_llist	*spot = NULL;
 
+  printf("#1 init_mlx\n");
   init_mlx(&mlx);
 
   init_camera(&eye, -300, 0, 50, 0, 0, 0);
@@ -25,11 +27,13 @@ int		main(int ac, char **av)
 
   add_mesh(&llist, PLAN, 0, 0, 0, 0, 0xff0000, 0.1, 0, 0, 0);
   add_mesh(&llist, CYLINDRE, 0, 0, 0, 100, 0xff0000, 0.9, 0, 0, 0);
+  printf("#2 raytracer\n");
   raytracer(&mlx, &eye, llist, spot);
 
   SDL_Event event;
   int loop = 1;
 
+  printf("#3 sdl_loop\n");
   while (loop != 0)
     {
       // events
@@ -49,11 +53,13 @@ int		main(int ac, char **av)
 	    }
 	}
       // update
-      // draw
-      
+      put_image_to_window(&mlx);
     }
+  printf("#5 end loopx\n");
+  SDL_DestroyRenderer(mlx.render);
+  SDL_DestroyWindow(mlx.win);
   SDL_Quit();
-
+  printf("#5 close SDL\n");
   free_llist(&llist);
   free_llist(&spot);
   return (0);
