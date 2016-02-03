@@ -12,7 +12,6 @@
 
 void    my_pixel_put_to_image(t_mlx *mlx, t_Uint color, int x, int y)
 {
-  int   pixel;
   char  r;
   char  g;
   char  b;
@@ -20,12 +19,6 @@ void    my_pixel_put_to_image(t_mlx *mlx, t_Uint color, int x, int y)
   r = (color & 0xFF0000) >> 16;
   g = (color & 0xFF00) >> 8;
   b = (color & 0xFF);
-  /*
-  pixel = (y * mlx->size_line) + x * (mlx->bpp / 8);
-  mlx->data[pixel] = b;
-  mlx->data[pixel + 1] = g;
-  mlx->data[pixel + 2] = r;
-  */
 
   SDL_SetRenderDrawColor(mlx->render, r, g, b, 0);
   SDL_RenderDrawPoint(mlx->render, x, y);
@@ -35,28 +28,22 @@ void    my_pixel_put_to_image(t_mlx *mlx, t_Uint color, int x, int y)
 int     init_mlx(t_mlx *mlx)
 {
   if (SDL_Init(SDL_INIT_VIDEO))
-    {
-      exit(EXIT_FAILURE);
-    }
+    exit(EXIT_FAILURE);
+
   mlx->win = SDL_CreateWindow(WIN_NAME,
 			      SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 			      WIN_X, WIN_Y,
 			      SDL_WINDOW_SHOWN);
   if (mlx->win == NULL)
-    {
-      exit(EXIT_FAILURE);
-    }
+    exit(EXIT_FAILURE);
+  /*
   mlx->img = SDL_GetWindowSurface(mlx->win);
   if (mlx->img == NULL)
-    {
-      exit(EXIT_FAILURE);
-    }
+    exit(EXIT_FAILURE);
+  */
   mlx->render = SDL_CreateRenderer(mlx->win, -1, SDL_RENDERER_ACCELERATED);
   if (mlx->render == NULL)
-    {
-      exit(EXIT_FAILURE);
-    }
-
+    exit(EXIT_FAILURE);
   return 0;
 }
 

@@ -34,6 +34,7 @@ int		main(int ac, char **av)
   int loop = 1;
 
   printf("#3 sdl_loop\n");
+  put_image_to_window(&mlx);
   while (loop != 0)
     {
       // events
@@ -46,21 +47,20 @@ int		main(int ac, char **av)
 	      break;
 	    case SDL_KEYDOWN:
 	      if (event.key.keysym.sym == SDLK_ESCAPE)
-		{
-		  loop = 0;
-		}
+		loop = 0;
 	      break;
 	    }
 	}
-      // update
-      put_image_to_window(&mlx);
     }
-  printf("#5 end loopx\n");
+  printf("#5 end loop\n");
+
+  printf("#7 free raytracer\n");
+  free_llist(&llist);
+  free_llist(&spot);
+
+  printf("#6 close SDL\n");
   SDL_DestroyRenderer(mlx.render);
   SDL_DestroyWindow(mlx.win);
   SDL_Quit();
-  printf("#5 close SDL\n");
-  free_llist(&llist);
-  free_llist(&spot);
   return (0);
 }
