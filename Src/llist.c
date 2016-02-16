@@ -42,4 +42,5 @@ void		init_color(t_rgb *rgb)
   rgb->g = 0x00;
   rgb->b = 0x00;
   rgb->rgb = 0x000000;
+  rgb->bright = 0.0;
 }

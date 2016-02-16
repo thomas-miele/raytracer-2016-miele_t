@@ -25,8 +25,14 @@ int		main(int ac, char **av)
   init_camera(&eye, -300, 0, 50, 0, 0, 0);
   add_spot(&spot, SPOT, -100, 200, 100, 0xffffff);
 
-  add_mesh(&llist, PLAN, 0, 0, 0, 0, 0xff0000, 0.1, 0, 0, 0);
-  add_mesh(&llist, CYLINDRE, 0, 0, 0, 100, 0xff0000, 0.9, 0, 0, 0);
+  // x : -near, +far
+  // y : -left, +right
+  // z : -bottom, +up
+  add_mesh(&llist, PLAN, 0, 0, 0, 0, 0x6363ff, 0, 0, 0, 0);
+  add_mesh(&llist, SPHERE, 150, -300, 0, 50, 0x00ff00, 0, 0, 0, 0);
+  add_mesh(&llist, CYLINDRE, 0, 0, 0, 75, 0xff0000, 0.1, 0, 0, 0);
+  add_mesh(&llist, CONE, 0, 250, 0, 50, 0xff00ff, 0.1, 0, 0, 0);
+
   printf("#2 raytracer\n");
   raytracer(&mlx, &eye, llist, spot);
 
@@ -46,8 +52,11 @@ int		main(int ac, char **av)
 	      loop = 0;
 	      break;
 	    case SDL_KEYDOWN:
-	      if (event.key.keysym.sym == SDLK_ESCAPE)
+	      if (event.key.keysym.sym == SDLK_ESCAPE ||
+		  event.key.keysym.sym == SDLK_s)
 		loop = 0;
+	      break;
+	    default:
 	      break;
 	    }
 	}

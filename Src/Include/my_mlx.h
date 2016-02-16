@@ -14,8 +14,8 @@
 #include <SDL2/SDL.h>
 
 #define		WIN_NAME	"raytracer"
-#define		WIN_X		800
-#define		WIN_Y		600
+#define		WIN_X		1080
+#define		WIN_Y		720
 #define		ESC		65307
 #define		D		100
 
